@@ -10,3 +10,19 @@ TEST_CASE("test")
 {
 	REQUIRE(test_config() == true);
 }
+
+TEST_CASE("Verify area of rectangle.") {
+
+	Rectangle1 rectangle1(5,5);
+
+	Rectangle1 rectangle2(3,10);
+
+	Rectangle1 rectangle3(10,10);
+
+	REQUIRE(rectangle1.get_area() == 25);
+
+	REQUIRE(rectangle2.get_area() == 30);
+
+	REQUIRE(rectangle3.get_area() == 100);
+
+}
