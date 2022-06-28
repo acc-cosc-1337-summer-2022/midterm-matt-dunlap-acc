@@ -5,16 +5,27 @@ using std::cin;
 
 int main()
 {
-    double meal_amount = 0.0;
-    double gratuity_rate = 0.0;
+    double meal_amount = -1.0;
+    double gratuity_rate = -1.0;
     bool continue_program = true;
     char user_choice = '\0';
 
     while (continue_program){
-        cout << "\nEnter meal amount: ";
-        cin >> meal_amount;
-        cout << "\nEnter gratuity rate: ";
-        cin >> gratuity_rate;
+        while (meal_amount < 0.0){
+            cout << "\nEnter meal amount: ";
+            cin >> meal_amount;
+            if (meal_amount < 0.0){
+                cout << "Invalid input. Meal amount cannot be negative.";
+            }
+        }
+
+        while (gratuity_rate < 0.0){
+            cout << "\nEnter gratuity rate: ";
+            cin >> gratuity_rate;
+            if (gratuity_rate < 0.0){
+                cout << "Invalid input. Gratuity rate cannot be negative.";
+            }
+        }
 
         Receipt receipt(meal_amount, gratuity_rate);
 
@@ -38,6 +49,8 @@ int main()
             continue_program = false;
         }
         user_choice = '\0';
+        meal_amount = -1.0;
+        gratuity_rate = -1.0;
     }
 
     return 0;
